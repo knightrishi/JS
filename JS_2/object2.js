@@ -64,11 +64,13 @@ const course = {
 // course.courseInstructor
 
 const {courseInstructor: instructor} = course
+//here courseInstructor i s now cslled Instructor
 
 // console.log(courseInstructor);
 console.log(instructor);
 
-// {
+//  its a JSON Just like object but it dont have name
+//{
 //     "name": "hitesh",
 //     "coursename": "js in hindi",
 //     "price": "free"
