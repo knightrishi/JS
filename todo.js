@@ -1,20 +1,25 @@
 let addTask = document.querySelector(".addNew");
+let inputField = document.querySelector(".todo-input");
+let container = document.querySelector(".container");
 
-addTask.addEventListener("click", function (e) {
-  const newInput = document.createElement("input");
-    const cb=document.createElement("input")
-cb.type="checkbox"
-  cb.classList.add("checkbox");
-  newInput.type = "text";
-  newInput.placeholder = "Add a new task...";
-  newInput.classList.add("todo-input");
+// Create a single UL to hold all tasks
+let taskList = document.createElement("ul");
+taskList.classList.add("task-list");
 
+addTask.insertAdjacentElement("afterend", taskList);
 
-const container = document.querySelector(".container");
-  const subContainer = document.createElement("div");
-  subContainer.classList.add("subContainer");
+addTask.addEventListener("click", function () {
+ 
 
-  subContainer.appendChild(newInput);
-  subContainer.appendChild(cb);
-  container.insertBefore(subContainer, addTask);
+  if (inputField.value.trim() === "") {
+    alert("Enter a Task");
+    return;
+  }
+  let newItem = document.createElement("li");
+  newItem.textContent = inputField.value.trim();
+  
+    taskList.appendChild(newItem);
+  
+
+ inputField.value = "";
 });
