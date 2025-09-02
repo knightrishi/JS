@@ -1,0 +1,72 @@
+body {
+  background-color: #8879c3; /* lavender */
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+.heading {
+  display: flex;
+  justify-content: center;
+  color: #2C3E50; /* deep navy for readability */
+  font-size: 1.5rem;
+  margin: 20px 0;
+}
+
+.container {
+  display: flex;
+   flex-direction: column;
+  justify-content: center;   /* keep input & button together */
+  align-items: center;
+  gap: 20px;
+  background-color: #fff;
+  padding: 40px;
+  margin: 0 auto;
+  max-width: 900px;          /* keeps layout centered */
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.container input {
+  flex: 1;                   /* responsive width */
+  max-width: 800px;
+  height: 100px;
+  border: none;
+  border-radius: 8px;
+  background: rgb(230, 230, 250); /* softer lavender tint */
+  font-size: 16px;
+  padding: 10px 15px;
+}
+.subContainer {
+  display: flex;
+  align-items: center;  /* vertically align input & checkbox */
+  gap: 10px;            /* space between input and checkbox */
+  width: 30%;
+}
+
+.subContainer input[type="text"] {
+  flex: 1;  /* input stretches while checkbox stays fixed */
+}
+.addNew {
+  width: 150px;
+  height: 50px;
+  border: none;
+  border-radius: 10px;
+  background-color: #2C3E50; /* navy */
+  color: #fff;               /* white text for contrast */
+  font-size: 16px;
+  cursor: pointer;
+display: block;
+margin-top: 10px;
+  
+}
+
+.addNew:hover {
+  background-color: #1A237E; /* darker navy on hover */
+}
+.todo-input{
+    display: block;     /* forces new line */
+  margin-top: 10px;   /* spacing between inputs */
+  width: 800px;
+  height: 50px;
+  padding: 5px 10px;
+}
