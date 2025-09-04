@@ -6,7 +6,8 @@ let container = document.querySelector(".container");
 let taskList = document.createElement("ul");
 taskList.classList.add("task-list");
 
-addTask.insertAdjacentElement("afterend", taskList);
+//addTask.insertAdjacentElement("afterend", taskList);
+addTask.after(taskList)
 
 addTask.addEventListener("click", function () {
  

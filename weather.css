@@ -1,0 +1,70 @@
+body {
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(#101213, #c3c9c9);
+  background-size: cover;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+h1 {
+  font-family: cursive;
+  font-style: oblique;
+  font-weight: 900;
+  color: aliceblue;
+}
+
+.main {
+  background-color: #000000;
+  width: 80%;
+  max-width: 400px;
+  padding: 30px;
+  border-radius: 12px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.submain {
+  display: flex;
+  flex-direction: column;   /* 🔥 stack elements */
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+
+button {
+  background-color: #FFD700;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  font-weight: bold;
+  border-radius: 6px;
+  width: 100%;   /* button full width for neat alignment */
+}
+
+button:hover {
+  background-color: #FFA500;
+}
+
+.content {
+  display: flex;
+  flex-direction: column; 
+  gap: 12px;
+  width: 100%;
+}
+.content input{
+    height: 40px;
+    font-size: 20px;
+}
+#weatherResult {
+  margin-top: 15px;
+  font-size: 30px;
+  font-weight: bold;
+  color: #f8f1f1;  /* or red for errors */
+}
