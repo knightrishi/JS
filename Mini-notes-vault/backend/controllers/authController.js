@@ -37,6 +37,7 @@ const registerUser = async (req,res) =>
             },
             });
 
+
         } catch (err) {
               console.log(err);
         res.status(500).json({ message: "Server error" });
@@ -45,5 +46,31 @@ const registerUser = async (req,res) =>
 
 
  const loginUser=async (req,res)=>{
+    try {
+        const {name,email,password}=req.body
+        const user=await user.findOne({email});
+          if(!user){
+                return req.status(400).json({message :"This User is not registered"})
+            }
+            const isMatch=await bcrypt.compare(password,user.password)
 
+            if(!isMatch){
+                return res.status(400).json({message:"Wrong Password"})
+            }
+
+            const tok=jwt.sign({id:user._id},"BANKAI",{expiresIn:"1d"})
+             //Creates a payload-{ id: user._id } (the data inside the token)
+             // Signs it with a secret-BANKAI(The Signature) so nobody can tamper with it
+             // Sets an expiry so it isn't valid forever
+
+             return res.json({
+            message: `Welcome Back User ${user.email}`,
+            tok,
+        });
+    } catch (error) {
+         console.log(err);
+        res.status(500).json({ message: "Server error" });
+    }
  }
+
+ module.exports = { registerUser, loginUser };
