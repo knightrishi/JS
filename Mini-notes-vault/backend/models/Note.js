@@ -11,7 +11,7 @@ const noteSchema=new mongoose.Schema({
 
     },
     userId:{
-         type: ObjectId,
+         type: mongoose.Schema.Types.ObjectId,
     ref: "User",
     required: true
     }
