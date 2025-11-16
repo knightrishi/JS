@@ -58,14 +58,14 @@ const registerUser = async (req,res) =>
                 return res.status(400).json({message:"Wrong Password"})
             }
 
-            const tok=jwt.sign({id:user._id},"BANKAI",{expiresIn:"1d"})
+            const token=jwt.sign({id:user._id},"BANKAI",{expiresIn:"1d"})
              //Creates a payload-{ id: user._id } (the data inside the token)
              // Signs it with a secret-BANKAI(The Signature) so nobody can tamper with it
              // Sets an expiry so it isn't valid forever
 
              return res.json({
             message: `Welcome Back User ${user.email}`,
-            tok,
+            token,
         });
     } catch (err) {
          console.log(err);
