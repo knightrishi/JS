@@ -1,4 +1,4 @@
-const user=require("../models/User")
+const User=require("../models/User")
 
 const bcrypt = require("bcryptjs");
 
@@ -11,12 +11,12 @@ const registerUser = async (req,res) =>
             const {name,email,password}=req.body
 
             if(!name || !email || !password){
-                return req.status(400).json({message :"PLEASE FILL ALL THE REQUIRED FIELDS"})
+                return res.status(400).json({message :"PLEASE FILL ALL THE REQUIRED FIELDS"})
             }
 
             const existingUser=await User.findOne({email});//returns ONLY ONE document
             if(existingUser){
-                return req.status(400).json({message :"This Email is already registered"})
+                return res.status(400).json({message :"This Email is already registered"})
             }
 
             const hashedPass=await bcrypt.hash(password,10)
@@ -48,9 +48,9 @@ const registerUser = async (req,res) =>
  const loginUser=async (req,res)=>{
     try {
         const {name,email,password}=req.body
-        const user=await user.findOne({email});
+        const user=await User.findOne({email});
           if(!user){
-                return req.status(400).json({message :"This User is not registered"})
+                return res.status(400).json({message :"This User is not registered"})
             }
             const isMatch=await bcrypt.compare(password,user.password)
 
@@ -67,7 +67,7 @@ const registerUser = async (req,res) =>
             message: `Welcome Back User ${user.email}`,
             tok,
         });
-    } catch (error) {
+    } catch (err) {
          console.log(err);
         res.status(500).json({ message: "Server error" });
     }
